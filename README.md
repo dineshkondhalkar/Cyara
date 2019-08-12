@@ -17,8 +17,15 @@ I have also created a webapiclient project which is in its own solution. It spaw
 I have run the following commands in separate dev env command windows to fire up the web apis:
 dotnet run --project <project path>
 
-WebAPIClient (5 parallel calls) ---------> WorkerService -------------------> DataProvider Service (returns Guid to WorkerService)
+WebAPIClient (5 parallel calls) ----> WorkerService ----------> DataProvider Service (returns Guid to WorkerService)
 						|
-						----------------------------> Count digits (0-9) in Guid
+						--------------> Count digits (0-9) in Guid
 						|
-						----------------------------> Aggregator Service (maintains digit statistics)
+						--------------> Aggregator Service (maintains digit statistics)
+						
+Things not done:
+Currently the web apis need to be fired up manually. I could have written a powershell script to do the same.
+The controllers could have been tested with mocking framework such as moq. 
+Logging in the APIs could have been implemented to trace the calls. This would have facilitated the testing of the calls manually as well.
+Written some more comments in the code.
+I have ran out of time as I did not want to spend more than 4-5 hours on this. Unfortunately its been late night work on this.
